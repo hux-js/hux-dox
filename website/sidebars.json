@@ -1,0 +1,7 @@
+{
+  "docs": {
+    "Getting started": ["overview", "installation", "api-reference"],
+    "Profiler": ["profiler/overview", "profiler/installation", "profiler/usage"],
+    "Examples": []
+  }
+}

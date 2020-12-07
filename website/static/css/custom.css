@@ -1,0 +1,69 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/* your custom css */
+
+.header {
+  background: #20232a;
+  /*background-image: url(../img/wallpaper.jpg);*/
+}
+
+.homeSplashFade {
+  background: #272b33;
+}
+
+.fixedHeaderContainer {
+  background-color: #20232a;
+}
+
+/* h1, h2, h3, h4, h5, p, small {
+  font-family: -apple-system, 'Roboto', sans-serif;
+} */
+
+/* .button {
+  background: #ed094a;
+  color: #fff;
+} */
+
+.navigationSlider .slidingNav ul li > a:focus, .navigationSlider .slidingNav ul li > a:hover, .navigationSlider .slidingNav ul li.siteNavItemActive > a, .navigationSlider .slidingNav ul li.siteNavGroupActive > a {
+  color: #ed094a;
+  background-color: #20232a;
+}
+
+.tabs .nav-tabs > div.active {
+  border-bottom: 2px solid #ed094a;
+}
+
+/* .navigationSlider .slidingNav ul li > a:visited {
+  color: white;
+  background-color: #293238;
+} */
+
+.projectTitle > small {
+  color: white;
+  font-weight: 200 !important;
+  font-size: 1.75rem !important;
+}
+
+.darkBackground {
+  background-color: #324a59;
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
