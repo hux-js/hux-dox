@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://hux-js.github.io/blog</id>
+    <id>https://hux-js.github.io/hux-dox/blog</id>
     <title> Blog</title>
     <updated>2020-12-05T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://hux-js.github.io/blog"/>
+    <link rel="alternate" href="https://hux-js.github.io/hux-dox/blog"/>
     <subtitle>The best place to stay up-to-date with the latest  news and events.</subtitle>
-    <logo>https://hux-js.github.io/img/hux-icon-white-new.svg</logo>
+    <logo>https://hux-js.github.io/hux-dox/img/hux-icon-white-new.svg</logo>
     <rights>Copyright © 2020 Hux JS</rights>
     <entry>
         <title type="html"><![CDATA[Version 0.1.0 released]]></title>
-        <id>https://hux-js.github.io/blog/2020/12/05/new-version-1.0.0.html</id>
-        <link href="https://hux-js.github.io/blog/2020/12/05/new-version-1.0.0.html"/>
+        <id>https://hux-js.github.io/hux-dox/blog/2020/12/05/new-version-1.0.0.html</id>
+        <link href="https://hux-js.github.io/hux-dox/blog/2020/12/05/new-version-1.0.0.html"/>
         <updated>2020-12-05T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>Version 0.1.0 has just been released to NPM. As this is 0.* versioned this is to be considered a development version and in other words, unstable.</p> <p>We will work towards getting a stable 1.0.0 release as soon as possible. If you'd like to help please d...</p>]]></summary>
         <author>

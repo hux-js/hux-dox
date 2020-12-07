@@ -2,21 +2,21 @@
 <rss version="2.0">
     <channel>
         <title> Blog</title>
-        <link>https://hux-js.github.io/blog</link>
+        <link>https://hux-js.github.io/hux-dox/blog</link>
         <description>The best place to stay up-to-date with the latest  news and events.</description>
         <lastBuildDate>Sat, 05 Dec 2020 06:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title> Blog</title>
-            <url>https://hux-js.github.io/img/hux-icon-white-new.svg</url>
-            <link>https://hux-js.github.io/blog</link>
+            <url>https://hux-js.github.io/hux-dox/img/hux-icon-white-new.svg</url>
+            <link>https://hux-js.github.io/hux-dox/blog</link>
         </image>
         <copyright>Copyright © 2020 Hux JS</copyright>
         <item>
             <title><![CDATA[Version 0.1.0 released]]></title>
-            <link>https://hux-js.github.io/blog/2020/12/05/new-version-1.0.0.html</link>
-            <guid>https://hux-js.github.io/blog/2020/12/05/new-version-1.0.0.html</guid>
+            <link>https://hux-js.github.io/hux-dox/blog/2020/12/05/new-version-1.0.0.html</link>
+            <guid>https://hux-js.github.io/hux-dox/blog/2020/12/05/new-version-1.0.0.html</guid>
             <pubDate>Sat, 05 Dec 2020 06:00:00 GMT</pubDate>
             <description><![CDATA[<p>Version 0.1.0 has just been released to NPM. As this is 0.* versioned this is to be considered a development version and in other words, unstable.</p> <p>We will work towards getting a stable 1.0.0 release as soon as possible. If you'd like to help please d...</p>]]></description>
         </item>
