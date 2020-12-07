@@ -12,8 +12,8 @@
 const siteConfig = {
   title: '',
   tagline: 'Hyperfast data management tools to enable next-gen UX',
-  url: 'https://hux-js.github.io',
-  baseUrl: '/hux-dox/',
+  url: 'https://huxjs.org',
+  baseUrl: '/',
 
   projectName: 'hux-dox',
   organizationName: 'hux-js',
