@@ -68,7 +68,7 @@ function Versions(props) {
                   </a>
                 </td>
                 <td>
-                  <a href={repoUrl}>Source Code</a>
+                  <a href={'https://github.com/hux-js/hux'}>Source Code</a>
                 </td>
               </tr>
             </tbody>
@@ -94,7 +94,7 @@ function Versions(props) {
                         </a>
                       </td>
                       <td>
-                        <a href={`${repoUrl}/releases/tag/v${version}`}>
+                        <a href={`https://github.com/hux-js/hux/releases/tag/v${version}`}>
                           Release Notes
                         </a>
                       </td>
@@ -105,7 +105,7 @@ function Versions(props) {
           </table>
           <p>
             You can find past versions of this project on{' '}
-            <a href={repoUrl}>GitHub</a>.
+            <a href={'https://github.com/hux-js/hux'}>GitHub</a>.
           </p>
         </div>
       </Container>
