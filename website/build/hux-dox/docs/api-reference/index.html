@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>API reference · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Requests"/><meta name="docsearch:version" content="0.1.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="API reference · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://huxjs.org/"/><meta property="og:description" content="## Requests"/><meta property="og:image" content="https://huxjs.org/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://huxjs.org/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/hux-icon-white-new.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://huxjs.org/blog/atom.xml" title=" Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://huxjs.org/blog/feed.xml" title=" Blog RSS Feed"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/hux-icon-white-new.svg" alt=""/><h2 class="headerTitleWithLogo"></h2></a><a href="/versions"><h3>0.1.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/overview" target="_self">Docs</a></li><li class=""><a href="/docs/roadmap" target="_self">Roadmap</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Getting started<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/installation">Installation</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/api-reference">API reference</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Profiler<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/profiler/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/docs/profiler/usage">Usage</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">API reference</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="requests"></a><a href="#requests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requests</h2>
+<h3><a class="anchor" aria-hidden="true" id="hydrate"></a><a href="#hydrate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>hydrate</h3>
+<p>This is used to retrieve data from an API, and then &quot;hydrate&quot; the Hux store with the response.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th style="text-align:left">Key</th><th style="text-align:left">Value</th><th style="text-align:left">Required</th><th style="text-align:left">Function</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">name</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The name of the bucket we want to hydrate</td></tr>
+<tr><td style="text-align:left">query</td><td style="text-align:left">String</td><td style="text-align:left">No</td><td style="text-align:left">Used to do an immediate query on the response data</td></tr>
+<tr><td style="text-align:left">onUpdate</td><td style="text-align:left">Func</td><td style="text-align:left">No</td><td style="text-align:left">Function to run when the linked bucket updates, either through the cache revalidating or a sync event</td></tr>
+<tr><td style="text-align:left">aggregations</td><td style="text-align:left">Array</td><td style="text-align:left">No</td><td style="text-align:left">An array of functions to perform pre-aggregations on the response data</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-code"></a><a href="#example-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example code</h4>
+<p><details>
+<summary>View example code</summary></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { hydrate } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hux-js/hux'</span>;
+
+...
+
+const userCounter = <span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> userCount = data.users.length;
+  <span class="hljs-keyword">return</span> { ...data, userCount };
+}
+
+...
+
+const hydrateUsers = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> { <span class="hljs-attr">meta</span>: { icon, size }, users, userCount } = <span class="hljs-keyword">await</span> hydrate({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
+    <span class="hljs-attr">query</span>: [
+      [<span class="hljs-string">'meta'</span>, [<span class="hljs-string">'icon'</span>, <span class="hljs-string">'size'</span>],
+      Filter(<span class="hljs-string">'users'</span>, [<span class="hljs-string">'name=John Smith'</span>]),
+      <span class="hljs-string">'userCount'</span>
+    ],
+    <span class="hljs-attr">onUpdate</span>: <span class="hljs-function">(<span class="hljs-params">newUsersData</span>) =&gt;</span> updateUsers(newUsersData)
+    <span class="hljs-attr">aggregations</span>: [userCounter]
+  });
+
+  updateUsers(users);
+  updateUserCount(userCount);
+  updateMeta(icon, size);
+};
+
+hydrateUsers();
+</code></pre>
+<p></details></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="sync"></a><a href="#sync" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>sync</h3>
+<p>This is used to sync data to the store, usually created from user input. If a sync API has been defined when creating the linked Bucket, the data will also be sent on to this API as well as updating the bucket itself.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-1"></a><a href="#parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th style="text-align:left">Key</th><th style="text-align:left">Value</th><th style="text-align:left">Required</th><th style="text-align:left">Function</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">name</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The name of the bucket we want to sync data to</td></tr>
+<tr><td style="text-align:left">data</td><td style="text-align:left">Any</td><td style="text-align:left">Yes</td><td style="text-align:left">The data you want to sync to the bucket</td></tr>
+<tr><td style="text-align:left">mode</td><td style="text-align:left">String</td><td style="text-align:left">No</td><td style="text-align:left">Determines whether to <code>merge</code> with or <code>replace</code> the current bucket data. Default is <code>merge</code></td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-code-1"></a><a href="#example-code-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example code</h4>
+<p><details>
+<summary>View example code</summary></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { sync } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hux-js/hux'</span>;
+
+...
+
+const resetUsers = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">await</span> sync({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
+    <span class="hljs-attr">data</span>: {
+      <span class="hljs-attr">users</span>: [],
+    },
+    <span class="hljs-attr">mode</span>: <span class="hljs-string">'replace'</span>
+  });
+}
+
+resetUsers();
+</code></pre>
+<p></details></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="store"></a><a href="#store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Store</h2>
+<h3><a class="anchor" aria-hidden="true" id="bucket"></a><a href="#bucket" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bucket</h3>
+<p>Bucket is used to define contracts between the UI and a dataset. These contracts include the API to hydrate from, an API to sync to and a schema.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-2"></a><a href="#parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th style="text-align:left">Key</th><th style="text-align:left">Value</th><th style="text-align:left">Required</th><th style="text-align:left">Function</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">name</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The unique name of the bucket</td></tr>
+<tr><td style="text-align:left">schema</td><td style="text-align:left">Object</td><td style="text-align:left">Yes</td><td style="text-align:left">The <a href="https://json-schema.org/learn/getting-started-step-by-step.html">JSON schema</a> used to define the buckets data structure. Includes the custom schema property <code>key</code> that you can assign to array types for a performance boost</td></tr>
+<tr><td style="text-align:left">hydrate</td><td style="text-align:left">Object</td><td style="text-align:left">No</td><td style="text-align:left">Contains the properties <code>url</code> and <code>options</code>. Specifies the API to retrieve data from. If unspecified you will still be able to sync data to the bucket</td></tr>
+<tr><td style="text-align:left">sync</td><td style="text-align:left">Object</td><td style="text-align:left">No</td><td style="text-align:left">Contains the properties <code>url</code> and <code>options</code>. Specifies the API to sync data to. If unspecified sync operations will only update the bucket.</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-code-2"></a><a href="#example-code-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example code</h4>
+<p><details>
+<summary>View example code</summary></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Bucket } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hux-js/hux'</span>;
+
+...
+
+Bucket({
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
+  <span class="hljs-attr">hydrate</span>: {
+    <span class="hljs-attr">url</span>: <span class="hljs-string">'http://your-api.com/users'</span>,
+    <span class="hljs-attr">options</span>: {
+      <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>
+    }
+  },
+  <span class="hljs-attr">sync</span>: {
+    <span class="hljs-attr">url</span>: <span class="hljs-string">'http://your-api.com/users/create'</span>,
+    <span class="hljs-attr">options</span>: {
+      <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
+    }
+  },
+  <span class="hljs-attr">schema</span>: {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+    <span class="hljs-attr">properties</span>: {
+      <span class="hljs-attr">meta</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span> },
+      <span class="hljs-attr">users</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">'array'</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">'name'</span> },
+      <span class="hljs-attr">userCount</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">'number'</span> },
+    },
+    <span class="hljs-attr">required</span>: [<span class="hljs-string">'users'</span>]
+  }
+});
+</code></pre>
+<p></details></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="query"></a><a href="#query" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>query</h3>
+<p>Used to query a bucket. Includes property selection, filtering and pagination.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-3"></a><a href="#parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th style="text-align:left">Key</th><th style="text-align:left">Value</th><th style="text-align:left">Required</th><th style="text-align:left">Function</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">name</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The name of the bucket you want to query</td></tr>
+<tr><td style="text-align:left">query</td><td style="text-align:left">Array</td><td style="text-align:left">Yes</td><td style="text-align:left">The query containing the properties you want to receive and any filters. Pass a blank array to return all of the data</td></tr>
+<tr><td style="text-align:left">onUpdate</td><td style="text-align:left">Func</td><td style="text-align:left">No</td><td style="text-align:left">Function to run when the queried bucket updates. The data provided to this function will be based on the query</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-code-3"></a><a href="#example-code-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example code</h4>
+<p><details>
+<summary>View example code</summary></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { query, Filter } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hux-js/hux'</span>;
+
+...
+
+const queryUsers = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> { userCount, users } = <span class="hljs-keyword">await</span> query({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
+    <span class="hljs-attr">query</span>: [
+      <span class="hljs-string">'userCount'</span>,
+      Filter(
+        <span class="hljs-string">'users'</span>,
+        [<span class="hljs-string">'name=John Smith'</span>],
+        <span class="hljs-number">1</span>, <span class="hljs-number">50</span>
+      ),
+    ],
+    <span class="hljs-attr">onUpdate</span>: <span class="hljs-function">(<span class="hljs-params">newUsers</span>) =&gt;</span> updateUsers(newUsers)
+  });
+
+  updateUsers(users);
+  updateUserCount(userCount);
+}
+
+queryUsers();
+</code></pre>
+<p></details></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="listen"></a><a href="#listen" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>listen</h3>
+<p>You can use <code>listen</code> to run auxillary functions when a bucket updates, such as logging.</p>
+<p>The main difference between <code>listen</code> and <code>query</code> is that the query is optional here, and the <code>onUpdate</code> required. Whereas with <code>query</code> it is the other way around.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-4"></a><a href="#parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th style="text-align:left">Key</th><th style="text-align:left">Value</th><th style="text-align:left">Required</th><th style="text-align:left">Function</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">name</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The name of the bucket you want to query</td></tr>
+<tr><td style="text-align:left">onUpdate</td><td style="text-align:left">Func</td><td style="text-align:left">Yes</td><td style="text-align:left">Function to run when the queried bucket updates. The data provided to this function will be based on the query</td></tr>
+<tr><td style="text-align:left">query</td><td style="text-align:left">Array</td><td style="text-align:left">No</td><td style="text-align:left">The query containing the properties you want to receive and any filters. Pass a blank array to return all of the data</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-code-4"></a><a href="#example-code-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example code</h4>
+<p><details>
+<summary>View example code</summary></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { listen } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hux-js/hux'</span>;
+
+...
+
+listen({
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
+  <span class="hljs-attr">onUpdate</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Users bucket updated'</span>)
+  }
+})
+</code></pre>
+<p></details></p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="query-language"></a><a href="#query-language" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query language</h2>
+<h3><a class="anchor" aria-hidden="true" id="filter"></a><a href="#filter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filter</h3>
+<p>Filter is used within a query to select a specific item from an array via either an exact or partial match. If you define a key for the array in the schema when initialising the bucket filtering on an exact match will be much faster.</p>
+<p>Filter uses ordered params rather than named params.</p>
+<h4><a class="anchor" aria-hidden="true" id="parameters-5"></a><a href="#parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h4>
+<table>
+<thead>
+<tr><th style="text-align:left">Key</th><th style="text-align:left">Value</th><th style="text-align:left">Required</th><th style="text-align:left">Function</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">id (arg 1)</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The name of the array you want to filter on</td></tr>
+<tr><td style="text-align:left">filter (arg 2)</td><td style="text-align:left">Array</td><td style="text-align:left">Yes</td><td style="text-align:left">Details the filter. Use <code>=</code> for an exact match or <code>=*</code> for a partial match. See the example code for an example</td></tr>
+<tr><td style="text-align:left">page (arg 3)</td><td style="text-align:left">Number</td><td style="text-align:left">No</td><td style="text-align:left">The page number used for pagination</td></tr>
+<tr><td style="text-align:left">limit (arg 4)</td><td style="text-align:left">Number</td><td style="text-align:left">No</td><td style="text-align:left">The amount of results returned per page</td></tr>
+</tbody>
+</table>
+<h4><a class="anchor" aria-hidden="true" id="example-code-5"></a><a href="#example-code-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example code</h4>
+<p><details>
+<summary>View example code</summary></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { query, Filter } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hux-js/hux'</span>;
+
+...
+
+const queryUsers = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> { users } = <span class="hljs-keyword">await</span> query({
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
+    <span class="hljs-attr">query</span>: [
+      Filter(
+        <span class="hljs-string">'users'</span>,
+        [<span class="hljs-string">'name=*John'</span>], <span class="hljs-comment">// return all rows where the name contains 'John' in the users array</span>
+        <span class="hljs-number">1</span>, <span class="hljs-number">50</span>
+      ),
+    ],
+  });
+
+  updateUsers(users);
+}
+
+queryUsers();
+</code></pre>
+<p></details></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/installation"><span class="arrow-prev">← </span><span>Installation</span></a><a class="docs-next button" href="/docs/profiler/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#requests">Requests</a><ul class="toc-headings"><li><a href="#hydrate">hydrate</a></li><li><a href="#sync">sync</a></li></ul></li><li><a href="#store">Store</a><ul class="toc-headings"><li><a href="#bucket">Bucket</a></li><li><a href="#query">query</a></li><li><a href="#listen">listen</a></li></ul></li><li><a href="#query-language">Query language</a><ul class="toc-headings"><li><a href="#filter">Filter</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/hux-logo-white-new.svg" alt="" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/overview.html">Overview</a><a href="/docs/installation.html">Installation</a><a href="/docs/api-reference.html">API Reference</a></div><div><h5>Community</h5><a href="https://twitter.com/hux_js" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/hux-js">GitHub</a><a class="github-button" href="https://github.com/hux-js/hux" data-icon="octicon-star" data-count-href="/hux-js/hux" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Hux JS</section></footer></div></body></html>
