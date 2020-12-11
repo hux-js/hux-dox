@@ -1,5 +1,5 @@
 ---
-id: version-0.1.0-profiler
+id: version-0.1.1-profiler
 title: Profiler
 sidebar_label: Profiler
 original_id: profiler
