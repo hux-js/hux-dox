@@ -1,5 +1,5 @@
 ---
-id: version-0.1.0-installation
+id: version-0.1.1-installation
 title: Installation
 sidebar_label: Installation
 original_id: installation
@@ -8,11 +8,11 @@ original_id: installation
 ## NPM
 
 ```
-npm i @hux-js/profiler
+npm i @hux-js/hux
 ```
 
 ## Yarn
 
 ```
-yarn add @hux-js/profiler
+yarn add @hux-js/hux
 ```

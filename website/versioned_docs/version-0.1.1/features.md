@@ -1,5 +1,5 @@
 ---
-id: version-0.1.0-features
+id: version-0.1.1-features
 title: Features
 sidebar_label: Features
 original_id: features

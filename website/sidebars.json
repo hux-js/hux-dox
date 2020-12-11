@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting started": ["overview", "installation", "api-reference"],
+    "Getting started": ["overview", "installation", "usage", "api-reference"],
     "Profiler": ["profiler/overview", "profiler/installation", "profiler/usage"],
     "Examples": []
   }
