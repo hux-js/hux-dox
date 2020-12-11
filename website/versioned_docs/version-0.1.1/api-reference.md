@@ -1,5 +1,5 @@
 ---
-id: version-0.1.0-api-reference
+id: version-0.1.1-api-reference
 title: API reference
 sidebar_label: API reference
 original_id: api-reference
