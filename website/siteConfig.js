@@ -18,6 +18,8 @@ const siteConfig = {
   projectName: 'hux-dox',
   organizationName: 'hux-js',
 
+  cname: 'huxjs.org',
+
   headerLinks: [
     {doc: 'overview', label: 'Docs'},
     {doc: 'roadmap', label: 'Roadmap'},
