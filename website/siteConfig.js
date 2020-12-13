@@ -10,7 +10,7 @@
 
 
 const siteConfig = {
-  title: '',
+  title: 'Hux JS',
   tagline: 'Hyperfast data management tools to enable next-gen UX',
   url: 'https://huxjs.org',
   baseUrl: '/',
