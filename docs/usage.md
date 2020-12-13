@@ -40,7 +40,9 @@ Bucket({
 
 After you've set up your bucket, you can use the [hydrate](https://huxjs.org/docs/api-reference#hydrate) function to fill it with data when required.
 
-To immediately retrieve data from the bucket, you can add a query to the hydrate function. This will initially return cached data (if available), when the latest API data returns from the server you can use the `onUpdate` property to push the fresh data to the UI.
+To immediately retrieve data from the bucket, you can add a query to the hydrate function. This will initially return cached data if available. When the latest API data returns from the server you can use the `onUpdate` property to push the fresh data to the UI.
+
+<blockquote>Note: `onUpdate` only works if the `query` property is present</blockquote>
 
 ```js
 const { users: cachedUsers } = await hydrate({
