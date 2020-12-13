@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huxjs.org/blog</id>
-    <title> Blog</title>
+    <title>Hux JS Blog</title>
     <updated>2020-12-05T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huxjs.org/blog"/>
-    <subtitle>The best place to stay up-to-date with the latest  news and events.</subtitle>
+    <subtitle>The best place to stay up-to-date with the latest Hux JS news and events.</subtitle>
     <logo>https://huxjs.org/img/hux-icon-white-new.svg</logo>
     <rights>Copyright © 2020 Hux JS</rights>
     <entry>
@@ -13,10 +13,10 @@
         <id>https://huxjs.org/blog/2020/12/05/new-version-1.0.0.html</id>
         <link href="https://huxjs.org/blog/2020/12/05/new-version-1.0.0.html"/>
         <updated>2020-12-05T06:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>Version 0.1.0 has just been released to NPM. As this is 0.* versioned this is to be considered a development version and in other words, unstable.</p> <p>We will work towards getting a stable 1.0.0 release as soon as possible. If you'd like to help please d...</p>]]></summary>
+        <summary type="html"><![CDATA[<p>Version 0.1.0 has just been released to NPM. As this is 0.* versioned this is to be considered a development version and in other words, unstable as APIs are likely to change without warning and it is not bug-free.</p> <p>We will work towards getting a stab...</p>]]></summary>
         <author>
             <name>Todd Runham</name>
-            <uri>http://twitter.com/trunham</uri>
+            <uri>http://twitter.com/todd_runham</uri>
         </author>
     </entry>
 </feed>

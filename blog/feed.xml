@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title> Blog</title>
+        <title>Hux JS Blog</title>
         <link>https://huxjs.org/blog</link>
-        <description>The best place to stay up-to-date with the latest  news and events.</description>
+        <description>The best place to stay up-to-date with the latest Hux JS news and events.</description>
         <lastBuildDate>Sat, 05 Dec 2020 06:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
-            <title> Blog</title>
+            <title>Hux JS Blog</title>
             <url>https://huxjs.org/img/hux-icon-white-new.svg</url>
             <link>https://huxjs.org/blog</link>
         </image>
@@ -18,7 +18,7 @@
             <link>https://huxjs.org/blog/2020/12/05/new-version-1.0.0.html</link>
             <guid>https://huxjs.org/blog/2020/12/05/new-version-1.0.0.html</guid>
             <pubDate>Sat, 05 Dec 2020 06:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Version 0.1.0 has just been released to NPM. As this is 0.* versioned this is to be considered a development version and in other words, unstable.</p> <p>We will work towards getting a stable 1.0.0 release as soon as possible. If you'd like to help please d...</p>]]></description>
+            <description><![CDATA[<p>Version 0.1.0 has just been released to NPM. As this is 0.* versioned this is to be considered a development version and in other words, unstable as APIs are likely to change without warning and it is not bug-free.</p> <p>We will work towards getting a stab...</p>]]></description>
         </item>
     </channel>
 </rss>
