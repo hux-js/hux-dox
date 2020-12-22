@@ -20,3 +20,7 @@ Any contributions are extremely welcome and appreciated. However, before doing s
 - Open a draft pull request to start the feedback cycle early.
 
 - Ensure new code has decent test coverage.
+
+## Deploying
+
+You'll have to have the correct npm permissions to deploy, but to do so - Switch to the main branch. Ensure the release PR has been merged in, then rebase. Use this command to publish the release: `GIT_USER=your-username CURRENT_BRANCH=main USE_SSH=true npm run publish-gh-pages`
