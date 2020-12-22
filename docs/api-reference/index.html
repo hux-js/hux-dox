@@ -148,9 +148,9 @@ resetUsers();
 </thead>
 <tbody>
 <tr><td style="text-align:left">name</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The unique name of the bucket</td></tr>
-<tr><td style="text-align:left">schema</td><td style="text-align:left">Object</td><td style="text-align:left">Yes</td><td style="text-align:left">The <a href="https://json-schema.org/learn/getting-started-step-by-step.html">JSON schema</a> used to define the buckets data structure. Includes the custom schema property <code>key</code> that you can assign to array types for a performance boost</td></tr>
+<tr><td style="text-align:left">schema</td><td style="text-align:left">Object</td><td style="text-align:left">Yes</td><td style="text-align:left">The <a href="https://json-schema.org/learn/getting-started-step-by-step.html">JSON schema</a> used to define the buckets data structure. Includes the custom schema property <code>key</code> that you can assign to array types for a performance boost. When defined an <code>array</code>, you must specify the <code>items</code> property</td></tr>
 <tr><td style="text-align:left">hydrate</td><td style="text-align:left">Object</td><td style="text-align:left">No</td><td style="text-align:left">Contains the properties <code>url</code> and <code>options</code>. Specifies the API to retrieve data from. If unspecified you will still be able to sync data to the bucket</td></tr>
-<tr><td style="text-align:left">sync</td><td style="text-align:left">Object</td><td style="text-align:left">No</td><td style="text-align:left">Contains the properties <code>url</code> and <code>options</code>. Specifies the API to sync data to. If unspecified sync operations will only update the bucket.</td></tr>
+<tr><td style="text-align:left">sync</td><td style="text-align:left">Object</td><td style="text-align:left">No</td><td style="text-align:left">Contains the properties <code>url</code> and <code>options</code>. Specifies the API to sync data to. If unspecified sync operations will only update the bucket</td></tr>
 </tbody>
 </table>
 <h4><a class="anchor" aria-hidden="true" id="example-code-2"></a><a href="#example-code-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example code</h4>
@@ -269,8 +269,8 @@ listen({
 <tr><th style="text-align:left">Key</th><th style="text-align:left">Value</th><th style="text-align:left">Required</th><th style="text-align:left">Function</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align:left">id (arg 1)</td><td style="text-align:left">String</td><td style="text-align:left">Yes</td><td style="text-align:left">The name of the array you want to filter on</td></tr>
-<tr><td style="text-align:left">filter (arg 2)</td><td style="text-align:left">Array</td><td style="text-align:left">Yes</td><td style="text-align:left">Details the filter. Use <code>=</code> for an exact match or <code>=*</code> for a partial match. See the example code for an example</td></tr>
+<tr><td style="text-align:left">id (arg 1)</td><td style="text-align:left">String, null</td><td style="text-align:left">No</td><td style="text-align:left">The property name of the array you want to filter on</td></tr>
+<tr><td style="text-align:left">filter (arg 2)</td><td style="text-align:left">Array</td><td style="text-align:left">Yes</td><td style="text-align:left">Details the filter. Use <code>=</code> for an exact match or <code>=*</code> for a partial match. See example code for more details</td></tr>
 <tr><td style="text-align:left">page (arg 3)</td><td style="text-align:left">Number</td><td style="text-align:left">No</td><td style="text-align:left">The page number used for pagination</td></tr>
 <tr><td style="text-align:left">limit (arg 4)</td><td style="text-align:left">Number</td><td style="text-align:left">No</td><td style="text-align:left">The amount of results returned per page</td></tr>
 </tbody>

@@ -58,6 +58,9 @@
 <p>This is the first step when using Hux. It allows you to define the APIs and schemas associated with the <a href="https://huxjs.org/docs/api-reference#bucket">bucket</a>, otherwise known as contracts. They may include what API you would call to fill the bucket with data, or what API you call when updating or POST'ing data.</p>
 <p>Below you can see we are setting a unique name for the bucket, the <code>GET</code> API method and the <code>POST</code> API method. We also define the expected JSON schema.</p>
 <p>We've added <code>key</code> to the <code>users</code> array so we can quickly query using the identifier <code>name</code>. This isn't a requirement but does drastically speed up filtering arrays.</p>
+<blockquote>
+  At the moment, it's a requirement to set the `items` property on `array` in the JSON schema. This will be relaxed in a future release.
+</blockquote>
 <pre><code class="hljs css language-js">Bucket({
   <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
   <span class="hljs-attr">hydrate</span>: {
@@ -73,7 +76,18 @@
     <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
     <span class="hljs-attr">properties</span>: {
       <span class="hljs-attr">meta</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span> },
-      <span class="hljs-attr">users</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">'array'</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">'name'</span> },
+      <span class="hljs-attr">users</span>: {
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'array'</span>,
+        <span class="hljs-attr">key</span>: <span class="hljs-string">'name'</span>,
+        <span class="hljs-attr">items</span>: {
+          <span class="hljs-attr">type</span>: <span class="hljs-string">'object'</span>,
+          <span class="hljs-attr">properties</span>: {
+            <span class="hljs-attr">name</span>: {
+              <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>
+            }
+          }
+        },
+      },
       <span class="hljs-attr">userCount</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">'number'</span> },
     },
     <span class="hljs-attr">required</span>: [<span class="hljs-string">'users'</span>],
@@ -116,6 +130,18 @@
     Filter(
       <span class="hljs-string">'users'</span>,
       [<span class="hljs-string">'name=John Smith'</span>], <span class="hljs-comment">// We can use =* to do a partial search</span>
+    ),
+  ],
+  <span class="hljs-attr">onUpdate</span>: <span class="hljs-function">(<span class="hljs-params">{ users }</span>) =&gt;</span> updateUser(users[<span class="hljs-number">0</span>])
+});
+</code></pre>
+<p>If the bucket is an array rather than an object, you can set the first param of <code>Filter</code> to null as you aren't selecting an object property when filtering:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> users = <span class="hljs-keyword">await</span> query({
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Users'</span>,
+  <span class="hljs-attr">query</span>: [
+    Filter(
+      <span class="hljs-literal">null</span>,
+      [<span class="hljs-string">'name=John Smith'</span>],
     ),
   ],
   <span class="hljs-attr">onUpdate</span>: <span class="hljs-function">(<span class="hljs-params">{ users }</span>) =&gt;</span> updateUser(users[<span class="hljs-number">0</span>])
