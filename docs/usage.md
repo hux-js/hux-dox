@@ -12,6 +12,10 @@ Below you can see we are setting a unique name for the bucket, the `GET` API met
 
 We've added `key` to the `users` array so we can quickly query using the identifier `name`. This isn't a requirement but does drastically speed up filtering arrays.
 
+<blockquote>
+  At the moment, it's a requirement to set the `items` property on `array` in the JSON schema. This will be relaxed in a future release.
+</blockquote>
+
 ```js
 Bucket({
   name: 'Users',
@@ -28,7 +32,18 @@ Bucket({
     type: 'object',
     properties: {
       meta: { type: 'object' },
-      users: { type: 'array', key: 'name' },
+      users: {
+        type: 'array',
+        key: 'name',
+        items: {
+          type: 'object',
+          properties: {
+            name: {
+              type: 'string'
+            }
+          }
+        },
+      },
       userCount: { type: 'number' },
     },
     required: ['users'],
@@ -88,6 +103,21 @@ const { users } = await query({
     Filter(
       'users',
       ['name=John Smith'], // We can use =* to do a partial search
+    ),
+  ],
+  onUpdate: ({ users }) => updateUser(users[0])
+});
+```
+
+If the bucket is an array rather than an object, you can set the first param of `Filter` to null as you aren't selecting an object property when filtering:
+
+```js
+const users = await query({
+  name: 'Users',
+  query: [
+    Filter(
+      null,
+      ['name=John Smith'],
     ),
   ],
   onUpdate: ({ users }) => updateUser(users[0])

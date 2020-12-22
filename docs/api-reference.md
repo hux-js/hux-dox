@@ -108,9 +108,9 @@ Bucket is used to define contracts between the UI and a dataset. These contracts
 | Key | Value | Required | Function |
 | :------------- | :---------- | :---------- | :----------- |
 | name | String | Yes | The unique name of the bucket |
-| schema | Object | Yes | The [JSON schema](https://json-schema.org/learn/getting-started-step-by-step.html) used to define the buckets data structure. Includes the custom schema property `key` that you can assign to array types for a performance boost |
+| schema | Object | Yes | The [JSON schema](https://json-schema.org/learn/getting-started-step-by-step.html) used to define the buckets data structure. Includes the custom schema property `key` that you can assign to array types for a performance boost. When defined an `array`, you must specify the `items` property |
 | hydrate | Object | No | Contains the properties `url` and `options`. Specifies the API to retrieve data from. If unspecified you will still be able to sync data to the bucket |
-| sync | Object | No | Contains the properties `url` and `options`. Specifies the API to sync data to. If unspecified sync operations will only update the bucket. |
+| sync | Object | No | Contains the properties `url` and `options`. Specifies the API to sync data to. If unspecified sync operations will only update the bucket |
 
 #### Example code
 
@@ -244,8 +244,8 @@ Filter uses ordered params rather than named params.
 
 | Key | Value | Required | Function |
 | :------------- | :---------- | :---------- | :----------- |
-| id (arg 1) | String | Yes | The name of the array you want to filter on  |
-| filter (arg 2) | Array | Yes | Details the filter. Use `=` for an exact match or `=*` for a partial match. See the example code for an example |
+| id (arg 1) | String, null | No | The property name of the array you want to filter on  |
+| filter (arg 2) | Array | Yes | Details the filter. Use `=` for an exact match or `=*` for a partial match. See example code for more details |
 | page (arg 3) | Number | No | The page number used for pagination |
 | limit (arg 4) | Number | No | The amount of results returned per page |
 
